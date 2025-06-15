@@ -20,7 +20,7 @@ export function DisplayableArtifactCard({
         height={48}
         width={48}
       />
-      <h3 className="text-lg font-semibold">{artifact.name}</h3>
+      <p>{artifact.name}</p>
       <div className="flex flex-grow justify-end gap-4 items-center">
         <span className="text-lg text-slate-500">{artifact.cost}DOM</span>
         <Button

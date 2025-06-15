@@ -28,7 +28,7 @@ export function PBsBar({
   return (
     <div className="w-full flex items-center gap-2 sticky top-0 z-40 bg-black py-2 border-b-slate-800 border-b-1">
       <Image
-        className="rounded-full flex-grow-0"
+        className="rounded-full flex-grow-0 md:flex hidden"
         alt="SphereWars"
         src="/logo.png"
         width={48}
@@ -36,7 +36,7 @@ export function PBsBar({
       />
       {faction && (
         <Button
-          className="flex-grow-0 relative"
+          className="flex-grow-0 relative md:flex hidden"
           variant="light"
           color="danger"
           size="lg"
@@ -61,7 +61,7 @@ export function PBsBar({
           className="w-full flex-grow-[4] mx-2"
           color={isPbsOverLimit ? "danger" : "success"}
           label="PBs"
-          valueLabel={`${pbs} / 60`}
+          valueLabel={`${pbs}/60`}
           showValueLabel={true}
           size="md"
           maxValue={60}
@@ -75,7 +75,7 @@ export function PBsBar({
           className="w-full flex-grow mx-2"
           color={isDomainOverLimit ? "danger" : "warning"}
           label="Dominio"
-          valueLabel={`${domain} / ${maxDomain}`}
+          valueLabel={`${domain}/${maxDomain}`}
           showValueLabel={true}
           size="md"
           maxValue={maxDomain}

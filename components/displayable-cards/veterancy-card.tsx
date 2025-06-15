@@ -20,7 +20,7 @@ export function DisplayableVeterancyCard({
         height={48}
         width={48}
       />
-      <h3 className="text-lg font-semibold">{veterancy.name}</h3>
+      <p>{veterancy.name}</p>
       <div className="flex flex-grow justify-end gap-4 items-center">
         <span className="text-lg text-slate-500">{veterancy.cost}PBs</span>
         <Button
