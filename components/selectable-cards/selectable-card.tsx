@@ -1,4 +1,4 @@
-import { Card, CardBody } from "@heroui/card/";
+import { Card, CardBody } from "@heroui/card";
 
 export function SelectableCard({
   children,
