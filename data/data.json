@@ -1,0 +1,718 @@
+{
+  "factions": [
+    {
+      "name": "La Alianza",
+      "key": "Alianza",
+      "leaders": [
+        {
+          "key": "AL01",
+          "name": "Nirlem, el Paladín",
+          "title": "Líder, Legión de los Cien Corazones",
+          "domain": 2,
+          "cost": 15
+        },
+        {
+          "key": "AL02",
+          "name": "Rodanes, Brazo de Metal",
+          "title": "Líder, Legión de los Cien Corazones",
+          "domain": 2,
+          "cost": 16
+        },
+        {
+          "key": "AL03",
+          "name": "Laroc, la Seductora",
+          "title": "Líder, Mercenarias de Isha",
+          "domain": 4,
+          "cost": 14
+        },
+        {
+          "key": "AL04",
+          "name": "Taem, la Carnicera",
+          "title": "Líder, Mercenarias de Isha",
+          "domain": 2,
+          "cost": 15
+        }
+      ],
+      "nonLeaders": [
+        {
+          "key": "AL03M",
+          "name": "Laroc, la Seductora",
+          "title": "Única, Mercenarias de Isha",
+          "cost": 12
+        },
+        {
+          "key": "AC01",
+          "name": "Escudero",
+          "title": "Legión de los Cien Corazones",
+          "cost": 5
+        },
+        {
+          "key": "AC02",
+          "name": "Explorador",
+          "title": "Legión de los Cien Corazones",
+          "cost": 4
+        },
+        {
+          "key": "AC03",
+          "name": "Corazón Postulante",
+          "title": "Legión de los Cien Corazones",
+          "cost": 5
+        },
+        {
+          "key": "AC04",
+          "name": "Postulante Raso",
+          "title": "Legión de los Cien Corazones",
+          "cost": 4
+        },
+        {
+          "key": "AC05",
+          "name": "Corazón Próximo",
+          "title": "Legión de los Cien Corazones",
+          "cost": 7
+        },
+        {
+          "key": "AC07",
+          "name": "Corazón Explorador",
+          "title": "Legión de los Cien Corazones, Jinete",
+          "cost": 7
+        },
+        {
+          "key": "AC08",
+          "name": "Corazón Équite",
+          "title": "Legión de los Cien Corazones, Jinete",
+          "cost": 9
+        },
+        {
+          "key": "AC09",
+          "name": "Róxter, el Piloto",
+          "title": "Único, Legión de los Cien Corazones",
+          "cost": 11
+        },
+        {
+          "key": "AC10",
+          "name": "Oteadora de Isha",
+          "title": "Mercenarias de Isha",
+          "cost": 5
+        },
+        {
+          "key": "AC11",
+          "name": "Guardiana Superiora",
+          "title": "Mercenarias de Isha",
+          "cost": 4
+        },
+        {
+          "key": "AC12",
+          "name": "Guardiana de Isha",
+          "title": "Mercenarias de Isha",
+          "cost": 3
+        },
+        {
+          "key": "AC13",
+          "name": "Saeta de Isha",
+          "title": "Mercenarias de Isha",
+          "cost": 4
+        },
+        {
+          "key": "AC14",
+          "name": "Recaudadora de Isha",
+          "title": "Mercenarias de Isha",
+          "cost": 6
+        },
+        {
+          "key": "AC15",
+          "name": "Cazadora de Isha",
+          "title": "Mercenarias de Isha",
+          "cost": 6
+        },
+        {
+          "key": "AC16",
+          "name": "Amazona de Isha",
+          "title": "Mercenarias de Isha, Jinete",
+          "cost": 8
+        },
+        {
+          "key": "AC17",
+          "name": "Mayira y Furia de Darlime",
+          "title": "Única, Mercenarias de Isha, Jinete",
+          "cost": 10
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "Anillo de sanación",
+          "cost": 1
+        },
+        {
+          "name": "Cadena Lucidez Estratégica",
+          "cost": 2
+        },
+        {
+          "name": "Capa Comedolor",
+          "cost": 2
+        },
+        {
+          "name": "Colgante Brillo Carmesí",
+          "cost": 1
+        },
+        {
+          "name": "Medallón de ligereza",
+          "cost": 1
+        },
+        {
+          "name": "Runa de protección",
+          "cost": 1
+        },
+        {
+          "name": "Sello de autoridad",
+          "cost": 1
+        },
+        {
+          "name": "Sortija reluciente",
+          "cost": 2
+        }
+      ],
+      "veterancies": [
+        {
+          "name": "Artífice veterano",
+          "cost": 1
+        },
+        {
+          "name": "Mando veterano",
+          "cost": 1
+        },
+        {
+          "name": "Arcanista veterano",
+          "cost": 1
+        }
+      ],
+      "restrictions": []
+    },
+    {
+      "name": "Vástagos de Kurgan",
+      "key": "Kurgan",
+      "leaders": [
+        {
+          "key": "KL01",
+          "name": "Raggarth, el Liberador",
+          "title": "Líder, Culto de los Liberados, Regor",
+          "domain": 2,
+          "cost": 15
+        },
+        {
+          "key": "KL02",
+          "name": "Sull, Congelamentes",
+          "title": "Líder, Culto Huram'Koll, Soimi",
+          "domain": 3,
+          "cost": 16
+        },
+        {
+          "key": "KL03",
+          "name": "Nek'Org, el Profeta",
+          "title": "Líder, Culto Tur'Na'Kurg, Soimi",
+          "domain": 2,
+          "cost": 17
+        },
+        {
+          "key": "KL04",
+          "name": "Tir'Abe, Muro de Hielo",
+          "title": "Líder, Culto Enur'Anar, Soimi",
+          "domain": 2,
+          "cost": 18
+        }
+      ],
+      "nonLeaders": [
+        {
+          "key": "KC02",
+          "name": "Siervo del Hielo",
+          "title": "Soimi",
+          "cost": 4
+        },
+        {
+          "key": "KC01",
+          "name": "Aberración del Hielo",
+          "title": "Soimi",
+          "cost": 5
+        },
+        {
+          "key": "KC03",
+          "name": "Regoretes Agitadores",
+          "title": "Culto de los Liberados, Regor, Multitud",
+          "cost": 4
+        },
+        {
+          "key": "KC04",
+          "name": "Acechador",
+          "title": "Culto de los Liberados, Regor",
+          "cost": 5
+        },
+        {
+          "key": "KC05",
+          "name": "Chamán",
+          "title": "Culto de los Liberados, Regor",
+          "cost": 6
+        },
+        {
+          "key": "KC06",
+          "name": "Destripador",
+          "title": "Culto de los Liberados, Regor",
+          "cost": 7
+        },
+        {
+          "key": "KC07",
+          "name": "Zahorí de la Escarcha",
+          "title": "Culto Huram'Koll, Soimi",
+          "cost": 7
+        },
+        {
+          "key": "KC08",
+          "name": "Jorguín de la Escarcha",
+          "title": "Culto Huram'Koll, Soimi",
+          "cost": 10
+        },
+        {
+          "key": "KC09",
+          "name": "Adorador Gélido",
+          "title": "Culto Tur'Na'Kurg, Soimi",
+          "cost": 8
+        },
+        {
+          "key": "KC10",
+          "name": "Desacrador Gélido",
+          "title": "Culto Tur'Na'Kurg, Soimi",
+          "cost": 10
+        },
+        {
+          "key": "KC11",
+          "name": "Asaltador del Glaciar",
+          "title": "Culto Enur'Anar, Soimi",
+          "cost": 8
+        },
+        {
+          "key": "KC12",
+          "name": "Centinela del Glaciar",
+          "title": "Culto Enur'Anar, Soimi",
+          "cost": 10
+        },
+        {
+          "key": "KC13",
+          "name": "El Leviatán",
+          "title": "Único, Soimi, Regor",
+          "cost": 14
+        },
+        {
+          "key": "KL02M",
+          "name": "Sull, Congelamentes",
+          "title": "Único, Culto Huram'Koll, Soimi",
+          "cost": 16
+        },
+        {
+          "key": "KL03M",
+          "name": "Nek'Org, el Profeta",
+          "title": "Único, Culto Tur'Na'Kurg, Soimi",
+          "cost": 17
+        },
+        {
+          "key": "KL04M",
+          "name": "Tir'Abe, Muro de Hielo",
+          "title": "Único, Culto Enur'Anar, Soimi",
+          "cost": 18
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "Calavera de Ythrul",
+          "cost": 2
+        },
+        {
+          "name": "Furia helada de Kurgan",
+          "cost": 1
+        },
+        {
+          "name": "Ira de Unuk",
+          "cost": 1
+        },
+        {
+          "name": "Pellejo de Olbarak",
+          "cost": 1
+        },
+        {
+          "name": "Piel de Sabrash",
+          "cost": 1
+        },
+        {
+          "name": "Pinturas de guerra",
+          "cost": 1
+        },
+        {
+          "name": "Sangre de Nak'Ly",
+          "cost": 1
+        },
+        {
+          "name": "Veneno de Garlak",
+          "cost": 2
+        }
+      ],
+      "veterancies": [
+        {
+          "name": "Artífice veterano",
+          "cost": 1
+        },
+        {
+          "name": "Mando veterano",
+          "cost": 1
+        },
+        {
+          "name": "Arcanista veterano",
+          "cost": 1
+        }
+      ],
+      "restrictions": []
+    },
+    {
+      "name": "Adeptos de Malesur",
+      "key": "Malesur",
+      "leaders": [
+        {
+          "key": "ML01",
+          "name": "Miuhalo, el Búho",
+          "title": "Líder, Búho",
+          "domain": 4,
+          "cost": 15
+        },
+        {
+          "key": "ML02",
+          "name": "Shaogi, el Jabalí",
+          "title": "Líder, Jabalí",
+          "domain": 2,
+          "cost": 15
+        },
+        {
+          "key": "ML03",
+          "name": "Liehhan, el Oso",
+          "title": "Líder, Oso",
+          "domain": 2,
+          "cost": 16
+        },
+        {
+          "key": "ML04",
+          "name": "Yenay, la Mantis",
+          "title": "Líder, Mantis",
+          "domain": 3,
+          "cost": 17
+        }
+      ],
+      "nonLeaders": [
+        {
+          "key": "ML01M",
+          "name": "Miuhalo, el Búho",
+          "title": "Único, Búho",
+          "cost": 13
+        },
+        {
+          "key": "MC02",
+          "name": "Eriza",
+          "title": "Erizo",
+          "cost": 3
+        },
+        {
+          "key": "MC11",
+          "name": "Druida Lobo",
+          "title": "Lobo",
+          "cost": 3
+        },
+        {
+          "key": "MC12",
+          "name": "Valhery, Primera Druida",
+          "title": "Única, Lobo",
+          "cost": 6
+        },
+        {
+          "key": "MC03",
+          "name": "Serpiente",
+          "title": "Serpiente",
+          "cost": 4
+        },
+        {
+          "key": "MC05",
+          "name": "Águila",
+          "title": "Águila",
+          "cost": 5
+        },
+        {
+          "key": "MC04",
+          "name": "Manada de Mangostas",
+          "title": "Mangosta, Multitud",
+          "cost": 6
+        },
+        {
+          "key": "MC01",
+          "name": "Topo",
+          "title": "Topo",
+          "cost": 6
+        },
+        {
+          "key": "MC06",
+          "name": "Cabra",
+          "title": "Cabra",
+          "cost": 7
+        },
+        {
+          "key": "MC07",
+          "name": "Lince",
+          "title": "Lince",
+          "cost": 7
+        },
+        {
+          "key": "MC09",
+          "name": "Morena",
+          "title": "Morena",
+          "cost": 9
+        },
+        {
+          "key": "MC08",
+          "name": "Cangrejo",
+          "title": "Cangrejo",
+          "cost": 10
+        },
+        {
+          "key": "MC10",
+          "name": "Toro",
+          "title": "Toro",
+          "cost": 12
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "Favor de la dualidad",
+          "cost": 1
+        },
+        {
+          "name": "Favor del camuflaje",
+          "cost": 1
+        },
+        {
+          "name": "Favor del crecimiento",
+          "cost": 1
+        },
+        {
+          "name": "Favor del instinto",
+          "cost": 1
+        },
+        {
+          "name": "Favor del linaje",
+          "cost": 1
+        },
+        {
+          "name": "Favor del poderío",
+          "cost": 1
+        },
+        {
+          "name": "Favor del sigilo",
+          "cost": 2
+        },
+        {
+          "name": "Favor del viento",
+          "cost": 2
+        }
+      ],
+      "veterancies": [
+        {
+          "name": "Artífice veterano",
+          "cost": 1
+        },
+        {
+          "name": "Mando veterano",
+          "cost": 1
+        },
+        {
+          "name": "Arcanista veterano",
+          "cost": 1
+        }
+      ],
+      "restrictions": []
+    },
+    {
+      "name": "Manadas de Urueh",
+      "key": "Urueh",
+      "leaders": [
+        {
+          "key": "UL01",
+          "name": "Satanor, el Volcán",
+          "title": "Líder, Primigenio",
+          "domain": 4,
+          "cost": 13
+        },
+        {
+          "key": "UL02",
+          "name": "Lanza Avernal",
+          "title": "Líder, Primigenio",
+          "domain": 2,
+          "cost": 16
+        },
+        {
+          "key": "UL03",
+          "name": "Pyronus, el Heraldo",
+          "title": "Líder",
+          "domain": 3,
+          "cost": 15
+        },
+        {
+          "key": "UL04",
+          "name": "Igniis, la Llama",
+          "title": "Líder, Primigenio",
+          "domain": 2,
+          "cost": 14
+        }
+      ],
+      "nonLeaders": [
+        {
+          "key": "UL01M",
+          "name": "Satanor, el Volcán",
+          "title": "Único, Primigenio",
+          "cost": 11
+        },
+        {
+          "key": "UL04B",
+          "name": "Guardia Ígnea",
+          "title": "Hijo de Kazag, Demontre",
+          "cost": 4
+        },
+        {
+          "key": "UC02",
+          "name": "Hostigador Demontre",
+          "title": "Hijo de Kazag, Demontre",
+          "cost": 2
+        },
+        {
+          "key": "UC03",
+          "name": "Leva Demontre",
+          "title": "Hijo de Kazag, Demontre",
+          "cost": 2
+        },
+        {
+          "key": "UC04",
+          "name": "Manada de Invocadores",
+          "title": "Hijo de Kazag, Demontre, Multitud",
+          "cost": 6
+        },
+        {
+          "key": "UC11",
+          "name": "Lucio, Capataz Demontre",
+          "title": "Único, Hijo de Kazag, Demontre",
+          "cost": 7
+        },
+        {
+          "key": "UC12",
+          "name": "Calcinador",
+          "title": "Hijo de Kazag",
+          "cost": 6
+        },
+        {
+          "key": "UC05",
+          "name": "Abrasador",
+          "title": "Hijo de Kazag",
+          "cost": 8
+        },
+        {
+          "key": "UC06",
+          "name": "Fundidor",
+          "title": "Hijo de Kazag",
+          "cost": 9
+        },
+        {
+          "key": "UC07",
+          "name": "Sorkep",
+          "title": "Bestia Autóctona",
+          "cost": 4
+        },
+        {
+          "key": "UC08",
+          "name": "Jauría de Kermeks",
+          "title": "Bestia Autóctona, Multitud",
+          "cost": 5
+        },
+        {
+          "key": "UC13",
+          "name": "Vol-Tusek",
+          "title": "Bestia Autóctona",
+          "cost": 7
+        },
+        {
+          "key": "UC09",
+          "name": "Jinete Mizek",
+          "title": "Bestia Autóctona, Jinete",
+          "cost": 9
+        },
+        {
+          "key": "UC10",
+          "name": "Din-Tusek",
+          "title": "Bestia Autóctona",
+          "cost": 14
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "Báculo de ceniza",
+          "cost": 2
+        },
+        {
+          "name": "Corriente volcánica de celeridad",
+          "cost": 2
+        },
+        {
+          "name": "Corriente volcánica de protección",
+          "cost": 1
+        },
+        {
+          "name": "Corriente volcánica explosiva",
+          "cost": 1
+        },
+        {
+          "name": "Látigo de Komth",
+          "cost": 1
+        },
+        {
+          "name": "Llama de Krozannor",
+          "cost": 1
+        },
+        {
+          "name": "Mano de Kavrrom",
+          "cost": 1
+        },
+        {
+          "name": "Manto de Pyrokkan",
+          "cost": 1
+        }
+      ],
+      "veterancies": [
+        {
+          "name": "Artífice veterano",
+          "cost": 1
+        },
+        {
+          "name": "Mando veterano",
+          "cost": 1
+        },
+        {
+          "name": "Arcanista veterano",
+          "cost": 1
+        }
+      ],
+      "restrictions": [
+        {
+          "char": "UL04B",
+          "dependsOn": ["UL04"]
+        }
+      ]
+    },
+    {
+      "name": "Genérico",
+      "key": "Genérico",
+      "leaders": [],
+      "nonLeaders": [],
+      "artifacts": [],
+      "veterancies": [],
+      "restrictions": []
+    }
+  ]
+}
