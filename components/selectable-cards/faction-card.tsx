@@ -1,29 +1,20 @@
-import Image from "next/image";
+import type { Faction } from "@/types";
 
 import { SelectableCard } from "./selectable-card";
 
+import { FactionBox } from "@/components/basic/faction-box";
+
 export function FactionCard({
-  name,
-  reference,
+  faction,
   onPress = () => {},
 }: {
-  name: string;
-  reference: string;
+  faction: Faction;
   onPress?: () => void;
 }) {
   return (
     <SelectableCard onPress={onPress}>
       <div className="flex items-center gap-4">
-        <Image
-          alt="X"
-          className="object-cover"
-          src={`/factions/${reference.toLocaleLowerCase()}.png`}
-          width={48}
-          height={48}
-        />
-        <div className="flex flex-col">
-          <span>{name}</span>
-        </div>
+        <FactionBox faction={faction} reference={faction.key} />
       </div>
     </SelectableCard>
   );

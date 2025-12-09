@@ -12,7 +12,7 @@ export function SelectableCard({
       isPressable
       shadow="sm"
       onPress={onPress}
-      className="md:w-1/3 w-full hover:bg-slate-900"
+      className="lg:w-[48%] w-full hover:bg-slate-900"
     >
       <CardBody className="overflow-visible">{children}</CardBody>
     </Card>

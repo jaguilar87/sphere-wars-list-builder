@@ -2,7 +2,7 @@
   "factions": [
     {
       "name": "La Alianza",
-      "key": "Alianza",
+      "key": "alianza",
       "leaders": [
         {
           "key": "AL01",
@@ -189,7 +189,7 @@
     },
     {
       "name": "Vástagos de Kurgan",
-      "key": "Kurgan",
+      "key": "kurgan",
       "leaders": [
         {
           "key": "KL01",
@@ -370,7 +370,7 @@
     },
     {
       "name": "Adeptos de Malesur",
-      "key": "Malesur",
+      "key": "malesur",
       "leaders": [
         {
           "key": "ML01",
@@ -533,7 +533,7 @@
     },
     {
       "name": "Manadas de Urueh",
-      "key": "Urueh",
+      "key": "urueh",
       "leaders": [
         {
           "key": "UL01",

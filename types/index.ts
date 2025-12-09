@@ -21,3 +21,8 @@ export interface Artifact {
   name: string;
   cost: number;
 }
+
+export interface Faction {
+  name: string;
+  key: string;
+}

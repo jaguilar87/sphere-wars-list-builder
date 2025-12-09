@@ -1,5 +1,7 @@
 "use client";
 
+import type { Artifact, Char, Faction, Veterancy } from "@/types";
+
 import React, { useState } from "react";
 import { Divider } from "@heroui/divider";
 import { Card, CardBody } from "@heroui/card";
@@ -7,18 +9,18 @@ import { Card, CardBody } from "@heroui/card";
 import { title } from "@/components/primitives";
 import data from "@/data/data.json";
 import { FactionCard } from "@/components/selectable-cards/faction-card";
-import { Artifact, Char, Veterancy } from "@/types";
 import { CharCard } from "@/components/selectable-cards/char-card";
-import { CardSelectionGrid } from "@/components/card-selection-grid";
-import { PBsBar } from "@/components/pbs-bar";
-import { DisplayableCharCard } from "@/components/displayable-cards/char-card";
+import { CardSelectionGrid } from "@/components/selectable-cards/card-selection-grid";
+import { CostsBar } from "@/components/costs-bar/costs-bar";
+import { SelectedCharCard } from "@/components/selected-cards/char-card";
 import { VeterancyCard } from "@/components/selectable-cards/veterancy-card";
-import { DisplayableVeterancyCard } from "@/components/displayable-cards/veterancy-card";
+import { SelectedVeterancyCard } from "@/components/selected-cards/veterancy-card";
 import { ArtifactCard } from "@/components/selectable-cards/artifact-card";
-import { DisplayableArtifactCard } from "@/components/displayable-cards/artifact-card";
+import { SelectedArtifactCard } from "@/components/selected-cards/artifact-card";
+import { PickCta } from "@/components/basic/pick-cta";
 
 export default function Home() {
-  const [faction, setFaction] = useState<string | null>(null);
+  const [faction, setFaction] = useState<Faction | null>(null);
   const [leader, setLeader] = useState<Char | null>(null);
   const [pbs, setPBs] = useState(0);
   const [domain, setDomain] = useState(0);
@@ -34,7 +36,7 @@ export default function Home() {
   const pickableOptions = React.useMemo(
     () =>
       data.factions
-        .find((f) => f.key === faction)
+        .find((f) => f.key === faction?.key)
         ?.nonLeaders.filter((char) => !leader || `${leader.key}M` !== char.key)
         .filter(
           (char) =>
@@ -55,7 +57,7 @@ export default function Home() {
   const pickableVeterancies = React.useMemo(
     () =>
       data.factions
-        .find((f) => f.key === faction)
+        .find((f) => f.key === faction?.key)
         ?.veterancies.filter(
           (veterancy) => !veterancies.find((v) => v.name === veterancy.name),
         )
@@ -65,7 +67,7 @@ export default function Home() {
   const pickableArtifacts = React.useMemo(
     () =>
       data.factions
-        .find((f) => f.key === faction)
+        .find((f) => f.key === faction?.key)
         ?.artifacts.filter(
           (artifact) => !artifacts.find((v) => v.name === artifact.name),
         )
@@ -182,12 +184,12 @@ export default function Home() {
   if (!faction) {
     return (
       <section className="flex flex-col items-center justify-center gap-8">
-        <PBsBar onReset={handleReset} />
+        <CostsBar onReset={handleReset} />
 
-        <div className="inline-block max-w-xl text-center justify-center">
+        <PickCta>
           <span className={title()}>Elige una </span>
           <span className={title({ color: "violet" })}>facción</span>
-        </div>
+        </PickCta>
 
         <CardSelectionGrid>
           {data.factions
@@ -195,9 +197,8 @@ export default function Home() {
             .map((faction) => (
               <FactionCard
                 key={faction.key}
-                reference={faction.key}
-                name={faction.name}
-                onPress={() => setTimeout(() => setFaction(faction.key), 150)}
+                faction={faction}
+                onPress={() => setTimeout(() => setFaction(faction), 150)}
               />
             ))}
         </CardSelectionGrid>
@@ -205,24 +206,24 @@ export default function Home() {
     );
   }
 
-  const factionData = data.factions.find((f) => f.key === faction);
+  const factionData = data.factions.find((f) => f.key === faction?.key);
 
   if (!leader) {
     return (
       <section className="flex flex-col items-center justify-center gap-8">
-        <PBsBar pbs={pbs} onReset={handleReset} faction={factionData!.key} />
+        <CostsBar pbs={pbs} onReset={handleReset} faction={faction} />
 
-        <div className="inline-block max-w-xl text-center justify-center">
-          <span className={title()}>Elige un </span>
+        <PickCta>
+          <span className={title()}>Elige </span>
           <span className={title({ color: "blue" })}>líder</span>
-        </div>
+        </PickCta>
 
         <CardSelectionGrid>
           {factionData?.leaders.map((leader) => (
             <CharCard
               key={leader.key}
               char={leader}
-              faction={factionData.key}
+              faction={factionData}
               isAffordable
               onPress={() => setTimeout(() => handlePickLeader(leader), 150)}
             />
@@ -234,26 +235,27 @@ export default function Home() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-8">
-      <PBsBar
+      <CostsBar
         pbs={pbs}
         domain={domain}
         maxDomain={maxDomain}
         onReset={handleReset}
-        onShare={() => navigator.clipboard.writeText(getListInText())}
-        faction={factionData!.key}
+        onCopy={() => navigator.clipboard.writeText(getListInText())}
+        faction={factionData}
       />
 
       <Card className="md:w-[75%] w-full bg-black border-1 border-slate-500">
         <CardBody className="gap-2">
-          <DisplayableCharCard
+          <SelectedCharCard
             char={leader}
-            faction={factionData!.key}
+            faction={factionData!}
             onPress={() => handlePickLeader(null)}
           />
           {artifacts.map((artifact, index) => (
-            <DisplayableArtifactCard
+            <SelectedArtifactCard
               key={`${artifact.name}-${index}`}
               artifact={artifact}
+              faction={factionData!}
               onPress={() => removeArtifact(artifact, index)}
             />
           ))}
@@ -261,33 +263,35 @@ export default function Home() {
         <Divider />
         <CardBody className="flex flex-col gap-4">
           {veterancies.map((vet, index) => (
-            <DisplayableVeterancyCard
+            <SelectedVeterancyCard
               key={vet.name}
               veterancy={vet}
+              faction={factionData!}
               onPress={() => removeVeterancy(vet, index)}
             />
           ))}
           {combatants.map((char, index) => (
-            <DisplayableCharCard
+            <SelectedCharCard
               key={`${char.key}-${index}`}
               char={char}
-              faction={factionData!.key}
+              faction={factionData!}
               onPress={() => removeCombatant(char, index)}
             />
           ))}
         </CardBody>
       </Card>
 
-      <div className="inline-block max-w-xl text-center justify-center">
+      <PickCta>
         <span className={title()}>Añade </span>
         <span className={title({ color: "cyan" })}>opciones</span>
-      </div>
+      </PickCta>
 
       <CardSelectionGrid>
         {pickableVeterancies.map((veterancy) => (
           <VeterancyCard
             key={veterancy.name}
             veterancy={veterancy}
+            faction={factionData!}
             isAffordable={veterancy.cost <= remainingPbs}
             onPress={() => {
               addVetrancy(veterancy);
@@ -298,7 +302,7 @@ export default function Home() {
           <CharCard
             key={char.key}
             char={char}
-            faction={factionData!.key}
+            faction={factionData!}
             isAffordable={char.cost <= remainingPbs}
             onPress={() => addCombatant(char)}
           />
@@ -315,6 +319,7 @@ export default function Home() {
           <ArtifactCard
             key={artifact.name}
             artifact={artifact}
+            faction={factionData!}
             isAffordable={artifact.cost <= remainingDomain}
             onPress={() => addArtifact(artifact)}
           />
