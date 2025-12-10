@@ -10,6 +10,16 @@ export interface Char {
   title: string;
   domain?: number;
   cost: number;
+  dependsOnLeader?: string;
+}
+
+export interface Unit {
+  name: string;
+  unique?: boolean;
+  dependsOnLeader?: string;
+  members: (Char & { min: number; max: number; selected: number })[];
+  minCost: number;
+  maxCost?: number;
 }
 
 export interface Veterancy {

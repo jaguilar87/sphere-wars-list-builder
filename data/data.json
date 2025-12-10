@@ -2,35 +2,35 @@
   "factions": [
     {
       "name": "La Alianza",
-      "key": "alianza",
+      "key": "Alianza",
       "leaders": [
         {
           "key": "AL01",
           "name": "Nirlem, el Paladín",
           "title": "Líder, Legión de los Cien Corazones",
-          "domain": 2,
-          "cost": 15
+          "cost": 15,
+          "domain": 2
         },
         {
           "key": "AL02",
           "name": "Rodanes, Brazo de Metal",
           "title": "Líder, Legión de los Cien Corazones",
-          "domain": 2,
-          "cost": 16
+          "cost": 16,
+          "domain": 2
         },
         {
           "key": "AL03",
           "name": "Laroc, la Seductora",
           "title": "Líder, Mercenarias de Isha",
-          "domain": 4,
-          "cost": 14
+          "cost": 14,
+          "domain": 4
         },
         {
           "key": "AL04",
           "name": "Taem, la Carnicera",
           "title": "Líder, Mercenarias de Isha",
-          "domain": 2,
-          "cost": 15
+          "cost": 15,
+          "domain": 2
         }
       ],
       "nonLeaders": [
@@ -44,23 +44,11 @@
           "key": "AC01",
           "name": "Escudero",
           "title": "Legión de los Cien Corazones",
-          "cost": 5
+          "cost": 6
         },
         {
           "key": "AC02",
           "name": "Explorador",
-          "title": "Legión de los Cien Corazones",
-          "cost": 4
-        },
-        {
-          "key": "AC03",
-          "name": "Corazón Postulante",
-          "title": "Legión de los Cien Corazones",
-          "cost": 5
-        },
-        {
-          "key": "AC04",
-          "name": "Postulante Raso",
           "title": "Legión de los Cien Corazones",
           "cost": 4
         },
@@ -73,13 +61,13 @@
         {
           "key": "AC07",
           "name": "Corazón Explorador",
-          "title": "Legión de los Cien Corazones, Jinete",
+          "title": "Legión de los Cien Corazones, Montado",
           "cost": 7
         },
         {
           "key": "AC08",
           "name": "Corazón Équite",
-          "title": "Legión de los Cien Corazones, Jinete",
+          "title": "Legión de los Cien Corazones, Montado",
           "cost": 9
         },
         {
@@ -93,18 +81,6 @@
           "name": "Oteadora de Isha",
           "title": "Mercenarias de Isha",
           "cost": 5
-        },
-        {
-          "key": "AC11",
-          "name": "Guardiana Superiora",
-          "title": "Mercenarias de Isha",
-          "cost": 4
-        },
-        {
-          "key": "AC12",
-          "name": "Guardiana de Isha",
-          "title": "Mercenarias de Isha",
-          "cost": 3
         },
         {
           "key": "AC13",
@@ -127,14 +103,62 @@
         {
           "key": "AC16",
           "name": "Amazona de Isha",
-          "title": "Mercenarias de Isha, Jinete",
+          "title": "Mercenarias de Isha, Montada",
           "cost": 8
         },
         {
           "key": "AC17",
           "name": "Mayira y Furia de Darlime",
-          "title": "Única, Mercenarias de Isha, Jinete",
+          "title": "Única, Mercenarias de Isha, Montada",
           "cost": 10
+        }
+      ],
+      "units": [
+        {
+          "name": "Cohorte de Postulantes",
+          "members": [
+            {
+              "key": "AC03",
+              "name": "Corazón Postulante",
+              "title": "Legión de los Cien Corazones",
+              "cost": 5,
+              "min": 1,
+              "max": 1
+            },
+            {
+              "key": "AC04",
+              "name": "Postulante Raso",
+              "title": "Legión de los Cien Corazones",
+              "cost": 4,
+              "min": 1,
+              "max": 2
+            }
+          ],
+          "unique": false,
+          "dependsOnLeader": null
+        },
+        {
+          "name": "Guardia de Isha",
+          "members": [
+            {
+              "key": "AC11",
+              "name": "Guardiana Superiora",
+              "title": "Mercenarias de Isha",
+              "cost": 4,
+              "min": 1,
+              "max": 1
+            },
+            {
+              "key": "AC12",
+              "name": "Guardiana de Isha",
+              "title": "Mercenarias de Isha",
+              "cost": 3,
+              "min": 1,
+              "max": 2
+            }
+          ],
+          "unique": false,
+          "dependsOnLeader": null
         }
       ],
       "artifacts": [
@@ -184,40 +208,39 @@
           "name": "Arcanista veterano",
           "cost": 1
         }
-      ],
-      "restrictions": []
+      ]
     },
     {
       "name": "Vástagos de Kurgan",
-      "key": "kurgan",
+      "key": "Kurgan",
       "leaders": [
         {
           "key": "KL01",
           "name": "Raggarth, el Liberador",
           "title": "Líder, Culto de los Liberados, Regor",
-          "domain": 2,
-          "cost": 15
+          "cost": 15,
+          "domain": 2
         },
         {
           "key": "KL02",
           "name": "Sull, Congelamentes",
           "title": "Líder, Culto Huram'Koll, Soimi",
-          "domain": 3,
-          "cost": 16
+          "cost": 16,
+          "domain": 3
         },
         {
           "key": "KL03",
           "name": "Nek'Org, el Profeta",
           "title": "Líder, Culto Tur'Na'Kurg, Soimi",
-          "domain": 2,
-          "cost": 17
+          "cost": 17,
+          "domain": 2
         },
         {
           "key": "KL04",
           "name": "Tir'Abe, Muro de Hielo",
           "title": "Líder, Culto Enur'Anar, Soimi",
-          "domain": 2,
-          "cost": 18
+          "cost": 18,
+          "domain": 2
         }
       ],
       "nonLeaders": [
@@ -303,21 +326,46 @@
           "key": "KL02M",
           "name": "Sull, Congelamentes",
           "title": "Único, Culto Huram'Koll, Soimi",
-          "cost": 16
+          "cost": 16,
+          "dependsOnLeader": "KL03"
+        },
+        {
+          "key": "KL02M",
+          "name": "Sull, Congelamentes",
+          "title": "Único, Culto Huram'Koll, Soimi",
+          "cost": 16,
+          "dependsOnLeader": "KL04"
         },
         {
           "key": "KL03M",
           "name": "Nek'Org, el Profeta",
           "title": "Único, Culto Tur'Na'Kurg, Soimi",
-          "cost": 17
+          "cost": 17,
+          "dependsOnLeader": "KL02"
+        },
+        {
+          "key": "KL03M",
+          "name": "Nek'Org, el Profeta",
+          "title": "Único, Culto Tur'Na'Kurg, Soimi",
+          "cost": 17,
+          "dependsOnLeader": "KL04"
         },
         {
           "key": "KL04M",
           "name": "Tir'Abe, Muro de Hielo",
           "title": "Único, Culto Enur'Anar, Soimi",
-          "cost": 18
+          "cost": 18,
+          "dependsOnLeader": "KL02"
+        },
+        {
+          "key": "KL04M",
+          "name": "Tir'Abe, Muro de Hielo",
+          "title": "Único, Culto Enur'Anar, Soimi",
+          "cost": 18,
+          "dependsOnLeader": "KL03"
         }
       ],
+      "units": [],
       "artifacts": [
         {
           "name": "Calavera de Ythrul",
@@ -365,40 +413,39 @@
           "name": "Arcanista veterano",
           "cost": 1
         }
-      ],
-      "restrictions": []
+      ]
     },
     {
       "name": "Adeptos de Malesur",
-      "key": "malesur",
+      "key": "Malesur",
       "leaders": [
         {
           "key": "ML01",
           "name": "Miuhalo, el Búho",
           "title": "Líder, Búho",
-          "domain": 4,
-          "cost": 15
+          "cost": 15,
+          "domain": 4
         },
         {
           "key": "ML02",
           "name": "Shaogi, el Jabalí",
           "title": "Líder, Jabalí",
-          "domain": 2,
-          "cost": 15
+          "cost": 15,
+          "domain": 2
         },
         {
           "key": "ML03",
           "name": "Liehhan, el Oso",
           "title": "Líder, Oso",
-          "domain": 2,
-          "cost": 16
+          "cost": 16,
+          "domain": 2
         },
         {
           "key": "ML04",
           "name": "Yenay, la Mantis",
           "title": "Líder, Mantis",
-          "domain": 3,
-          "cost": 17
+          "cost": 17,
+          "domain": 3
         }
       ],
       "nonLeaders": [
@@ -412,12 +459,6 @@
           "key": "MC02",
           "name": "Eriza",
           "title": "Erizo",
-          "cost": 3
-        },
-        {
-          "key": "MC11",
-          "name": "Druida Lobo",
-          "title": "Lobo",
           "cost": 3
         },
         {
@@ -481,6 +522,23 @@
           "cost": 12
         }
       ],
+      "units": [
+        {
+          "name": "Druidas",
+          "members": [
+            {
+              "key": "MC11",
+              "name": "Druida Lobo",
+              "title": "Lobo",
+              "cost": 3,
+              "min": 2,
+              "max": 3
+            }
+          ],
+          "unique": true,
+          "dependsOnLeader": null
+        }
+      ],
       "artifacts": [
         {
           "name": "Favor de la dualidad",
@@ -528,40 +586,39 @@
           "name": "Arcanista veterano",
           "cost": 1
         }
-      ],
-      "restrictions": []
+      ]
     },
     {
       "name": "Manadas de Urueh",
-      "key": "urueh",
+      "key": "Urueh",
       "leaders": [
         {
           "key": "UL01",
           "name": "Satanor, el Volcán",
           "title": "Líder, Primigenio",
-          "domain": 4,
-          "cost": 13
+          "cost": 13,
+          "domain": 4
         },
         {
           "key": "UL02",
           "name": "Lanza Avernal",
           "title": "Líder, Primigenio",
-          "domain": 2,
-          "cost": 16
+          "cost": 16,
+          "domain": 2
         },
         {
           "key": "UL03",
           "name": "Pyronus, el Heraldo",
           "title": "Líder",
-          "domain": 3,
-          "cost": 15
+          "cost": 15,
+          "domain": 3
         },
         {
           "key": "UL04",
           "name": "Igniis, la Llama",
           "title": "Líder, Primigenio",
-          "domain": 2,
-          "cost": 14
+          "cost": 14,
+          "domain": 2
         }
       ],
       "nonLeaders": [
@@ -570,24 +627,6 @@
           "name": "Satanor, el Volcán",
           "title": "Único, Primigenio",
           "cost": 11
-        },
-        {
-          "key": "UL04B",
-          "name": "Guardia Ígnea",
-          "title": "Hijo de Kazag, Demontre",
-          "cost": 4
-        },
-        {
-          "key": "UC02",
-          "name": "Hostigador Demontre",
-          "title": "Hijo de Kazag, Demontre",
-          "cost": 2
-        },
-        {
-          "key": "UC03",
-          "name": "Leva Demontre",
-          "title": "Hijo de Kazag, Demontre",
-          "cost": 2
         },
         {
           "key": "UC04",
@@ -640,14 +679,61 @@
         {
           "key": "UC09",
           "name": "Jinete Mizek",
-          "title": "Bestia Autóctona, Jinete",
+          "title": "Bestia Autóctona, Montado",
           "cost": 9
         },
         {
           "key": "UC10",
           "name": "Din-Tusek",
-          "title": "Bestia Autóctona",
+          "title": "Bestia Autóctona, Montado",
           "cost": 14
+        }
+      ],
+      "units": [
+        {
+          "name": "Guardia Ígnea",
+          "members": [
+            {
+              "key": "UL04B",
+              "name": "Guardia Ígnea",
+              "title": "Hijo de Kazag, Demontre",
+              "cost": 4,
+              "min": 1,
+              "max": 2
+            }
+          ],
+          "dependsOnLeader": "UL04",
+          "unique": true
+        },
+        {
+          "name": "Manada de Levas",
+          "members": [
+            {
+              "key": "UC03",
+              "name": "Leva Demontre",
+              "title": "Hijo de Kazag, Demontre",
+              "cost": 2,
+              "min": 3,
+              "max": 5
+            }
+          ],
+          "unique": false,
+          "dependsOnLeader": null
+        },
+        {
+          "name": "Manada de Hostigadores",
+          "members": [
+            {
+              "key": "UC02",
+              "name": "Hostigador Demontre",
+              "title": "Hijo de Kazag, Demontre",
+              "cost": 2,
+              "min": 3,
+              "max": 5
+            }
+          ],
+          "unique": false,
+          "dependsOnLeader": null
         }
       ],
       "artifacts": [
@@ -656,15 +742,15 @@
           "cost": 2
         },
         {
-          "name": "Corriente volcánica de celeridad",
+          "name": "Corr. volcánica de celeridad",
           "cost": 2
         },
         {
-          "name": "Corriente volcánica de protección",
+          "name": "Corr. volcánica de protección",
           "cost": 1
         },
         {
-          "name": "Corriente volcánica explosiva",
+          "name": "Corr. volcánica explosiva",
           "cost": 1
         },
         {
@@ -697,22 +783,7 @@
           "name": "Arcanista veterano",
           "cost": 1
         }
-      ],
-      "restrictions": [
-        {
-          "char": "UL04B",
-          "dependsOn": ["UL04"]
-        }
       ]
-    },
-    {
-      "name": "Genérico",
-      "key": "Genérico",
-      "leaders": [],
-      "nonLeaders": [],
-      "artifacts": [],
-      "veterancies": [],
-      "restrictions": []
     }
   ]
 }

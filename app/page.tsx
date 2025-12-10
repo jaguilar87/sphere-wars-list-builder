@@ -1,6 +1,6 @@
 "use client";
 
-import type { Artifact, Char, Faction, Veterancy } from "@/types";
+import type { Artifact, Char, Faction, Unit, Veterancy } from "@/types";
 
 import React, { useState } from "react";
 import { Divider } from "@heroui/divider";
@@ -18,6 +18,9 @@ import { SelectedVeterancyCard } from "@/components/selected-cards/veterancy-car
 import { ArtifactCard } from "@/components/selectable-cards/artifact-card";
 import { SelectedArtifactCard } from "@/components/selected-cards/artifact-card";
 import { PickCta } from "@/components/basic/pick-cta";
+import { UnitCard } from "@/components/selectable-cards/unit-card";
+import { calculateUnitCost, createMinimalUnit } from "@/utils/units";
+import { SelectedUnitCard } from "@/components/selected-cards/unit-card";
 
 export default function Home() {
   const [faction, setFaction] = useState<Faction | null>(null);
@@ -26,6 +29,7 @@ export default function Home() {
   const [domain, setDomain] = useState(0);
   const [maxDomain, setMaxDomain] = useState(0);
   const [combatants, setCombats] = useState<Char[]>([]);
+  const [units, setUnits] = useState<Unit[]>([]);
   const [veterancies, setVeterancies] = useState<Veterancy[]>([]);
   const [artifacts, setArtifacts] = useState<Artifact[]>([]);
   const remainingPbs = React.useMemo(() => 60 - pbs, [pbs]);
@@ -39,8 +43,8 @@ export default function Home() {
         .find((f) => f.key === faction?.key)
         ?.nonLeaders.filter((char) => !leader || `${leader.key}M` !== char.key)
         .filter(
-          (char) =>
-            !leader || !char.key.endsWith("B") || `${leader.key}B` === char.key,
+          (char: Char) =>
+            !char.dependsOnLeader || leader?.key === char.dependsOnLeader,
         )
         .filter(
           (char) =>
@@ -74,11 +78,26 @@ export default function Home() {
         .sort((a, b) => a.cost - b.cost) || [],
     [faction, artifacts],
   );
+  const pickableUnits = React.useMemo(
+    () =>
+      data.factions
+        .find((f) => f.key === faction?.key)
+        ?.units.filter(
+          (unit) => !unit.unique || !units.find((v) => v.name === unit.name),
+        )
+        .filter(
+          (unit) =>
+            !unit.dependsOnLeader || leader?.key === unit.dependsOnLeader,
+        )
+        .map(createMinimalUnit)
+        .sort((a, b) => a.name.localeCompare(b.name)) || [],
+    [faction, units],
+  );
   const getListInText = React.useCallback(() => {
     const lines: string[] = [];
 
     if (faction) {
-      lines.push(`Facción: ${faction}`);
+      lines.push(`Facción: ${faction.name}`);
     }
 
     if (leader) {
@@ -101,6 +120,17 @@ export default function Home() {
           (veterancy) => `${veterancy.name} - ${veterancy.cost}PBs`,
         ),
       );
+    }
+    if (units.length > 0) {
+      for (const unit of units) {
+        lines.push(`${unit.name}:`);
+        lines.push(
+          ...unit.members.map(
+            (member) =>
+              `  - ${member.name} x${member.selected} - ${member.cost}PBs`,
+          ),
+        );
+      }
     }
     if (combatants.length > 0) {
       lines.push(...combatants.map((char) => `${char.name} - ${char.cost}PBs`));
@@ -125,6 +155,7 @@ export default function Home() {
       setFaction(null);
       setLeader(null);
       setCombats([]);
+      setUnits([]);
       setVeterancies([]);
       setArtifacts([]);
       setPBs(0);
@@ -136,6 +167,7 @@ export default function Home() {
   const handlePickLeader = (leader: Char | null) => {
     setLeader(leader);
     setCombats([]);
+    setUnits([]);
     setVeterancies([]);
     setArtifacts([]);
     setPBs(leader?.cost || 0);
@@ -179,6 +211,66 @@ export default function Home() {
   const removeArtifact = (artifact: Artifact, pos: number) => {
     setDomain((prev) => prev - artifact.cost);
     setArtifacts((prev) => prev.filter((_, index) => index !== pos));
+  };
+
+  const addUnit = (minUnit: Unit) => {
+    setPBs((prev) => prev + minUnit.minCost);
+    setUnits((prev) => [...prev, minUnit]);
+  };
+
+  const removeUnit = (unit: Unit, pos: number) => {
+    setPBs((prev) => prev - calculateUnitCost(unit));
+    setUnits((prev) => prev.filter((_, index) => index !== pos));
+  };
+
+  const addMemberToUnit = (pos: number, unit: Unit, unitKey: string) => {
+    const memberToAdd = unit.members.find((member) => member.key === unitKey);
+
+    if (!memberToAdd || memberToAdd.selected >= memberToAdd.max) {
+      return;
+    }
+
+    setPBs((prev) => prev + memberToAdd.cost);
+    setUnits((prev) =>
+      prev.map((u, idx) => {
+        if (idx !== pos) return u;
+
+        return {
+          ...u,
+          members: u.members.map((member) => {
+            if (member.key !== unitKey) return member;
+
+            return { ...member, selected: member.selected + 1 };
+          }),
+        };
+      }),
+    );
+  };
+
+  const removeMemberFromUnit = (pos: number, unit: Unit, unitKey: string) => {
+    const memberToRemove = unit.members.find(
+      (member) => member.key === unitKey,
+    );
+
+    if (!memberToRemove || memberToRemove.selected <= memberToRemove.min) {
+      return;
+    }
+
+    setPBs((prev) => prev - memberToRemove.cost);
+    setUnits((prev) =>
+      prev.map((u, idx) => {
+        if (idx !== pos) return u;
+
+        return {
+          ...u,
+          members: u.members.map((member) => {
+            if (member.key !== unitKey) return member;
+
+            return { ...member, selected: member.selected - 1 };
+          }),
+        };
+      }),
+    );
   };
 
   if (!faction) {
@@ -270,6 +362,20 @@ export default function Home() {
               onPress={() => removeVeterancy(vet, index)}
             />
           ))}
+          {units.map((unit, index) => (
+            <SelectedUnitCard
+              key={`${unit.name}-${index}`}
+              unit={unit}
+              faction={factionData!}
+              onDeleteUnit={() => removeUnit(unit, index)}
+              onAddMember={(unit, memberKey) =>
+                addMemberToUnit(index, unit, memberKey)
+              }
+              onRemoveMember={(unit, memberKey) =>
+                removeMemberFromUnit(index, unit, memberKey)
+              }
+            />
+          ))}
           {combatants.map((char, index) => (
             <SelectedCharCard
               key={`${char.key}-${index}`}
@@ -296,6 +402,15 @@ export default function Home() {
             onPress={() => {
               addVetrancy(veterancy);
             }}
+          />
+        ))}
+        {pickableUnits.map((unit) => (
+          <UnitCard
+            key={unit.name}
+            unit={createMinimalUnit(unit)}
+            faction={factionData!}
+            isAffordable={unit.minCost <= remainingPbs}
+            onPress={() => addUnit(unit)}
           />
         ))}
         {pickableOptions.map((char) => (
