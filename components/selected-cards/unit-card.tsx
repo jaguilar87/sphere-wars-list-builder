@@ -49,29 +49,35 @@ export function SelectedUnitCard({
         >
           <CharBox char={member} faction={faction} />
           <div className="flex flex-grow justify-end gap-4 items-center">
-            <Button
-              variant="ghost"
-              isIconOnly
-              color="secondary"
-              radius="full"
-              size="md"
-              onPress={() => onRemoveMember(unit, member.key)}
-            >
-              <MinusIcon className="w-6 h-6" />
-            </Button>
+            {member.max !== member.min && (
+              <Button
+                variant="ghost"
+                isIconOnly
+                color={member.selected === member.min ? "default" : "secondary"}
+                radius="full"
+                size="md"
+                onPress={() => onRemoveMember(unit, member.key)}
+              >
+                <MinusIcon className="w-6 h-6" />
+              </Button>
+            )}
             <MutedText>
               {member.selected} x {member.cost}PBs
             </MutedText>
-            <Button
-              variant="ghost"
-              isIconOnly
-              color="secondary"
-              radius="full"
-              size="md"
-              onPress={() => onAddMember(unit, member.key)}
-            >
-              <PlusIcon className="w-6 h-6" />
-            </Button>
+            {member.max !== member.min ? (
+              <Button
+                variant="ghost"
+                isIconOnly
+                color={member.selected === member.max ? "default" : "secondary"}
+                radius="full"
+                size="md"
+                onPress={() => onAddMember(unit, member.key)}
+              >
+                <PlusIcon className="w-6 h-6" />
+              </Button>
+            ) : (
+              <div className="w-10 h-6" />
+            )}
           </div>
         </div>
       ))}
