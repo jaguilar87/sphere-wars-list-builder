@@ -3,7 +3,8 @@ import type { Faction, Veterancy } from "@/types";
 import { TrashIcon } from "@heroicons/react/24/solid";
 import { Button } from "@heroui/button";
 
-import { VeterancyBox } from "../basic/veterancy-box";
+import { VeterancyBox } from "@/components/basic/veterancy-box";
+import { MutedText } from "@/components/basic/muted-text";
 
 export function SelectedVeterancyCard({
   veterancy,
@@ -18,7 +19,7 @@ export function SelectedVeterancyCard({
     <div className="flex items-center gap-4">
       <VeterancyBox veterancy={veterancy} faction={faction} />
       <div className="flex flex-grow justify-end gap-4 items-center">
-        <span className="text-lg text-slate-500">{veterancy.cost}PBs</span>
+        <MutedText>{veterancy.cost}PBs</MutedText>
         <Button
           variant="ghost"
           isIconOnly

@@ -22,7 +22,7 @@ export function ArtifactCard({
       <div className="flex items-center gap-4">
         <ArtifactBox artifact={artifact} faction={faction} />
         <span
-          className={clsx("text-lg grow text-right", {
+          className={clsx("text-base md:text-lg grow text-right", {
             ["text-gray-600"]: !isAffordable,
             ["text-warning-200"]: isAffordable,
           })}

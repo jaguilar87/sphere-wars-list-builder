@@ -15,10 +15,10 @@ export interface Char {
 
 export interface Unit {
   name: string;
+  members: (Char & { min: number; max: number; selected: number })[];
   unique?: boolean;
   dependsOnLeader?: string;
-  members: (Char & { min: number; max: number; selected: number })[];
-  minCost: number;
+  minCost?: number;
   maxCost?: number;
 }
 
@@ -35,4 +35,9 @@ export interface Artifact {
 export interface Faction {
   name: string;
   key: string;
+  leaders: Char[];
+  nonLeaders: Char[];
+  units: Unit[];
+  veterancies: Veterancy[];
+  artifacts: Artifact[];
 }

@@ -39,9 +39,8 @@ export default function Home() {
   );
   const pickableOptions = React.useMemo(
     () =>
-      data.factions
-        .find((f) => f.key === faction?.key)
-        ?.nonLeaders.filter((char) => !leader || `${leader.key}M` !== char.key)
+      faction?.nonLeaders
+        .filter((char) => !leader || `${leader.key}M` !== char.key)
         .filter(
           (char: Char) =>
             !char.dependsOnLeader || leader?.key === char.dependsOnLeader,
@@ -60,9 +59,8 @@ export default function Home() {
   );
   const pickableVeterancies = React.useMemo(
     () =>
-      data.factions
-        .find((f) => f.key === faction?.key)
-        ?.veterancies.filter(
+      faction?.veterancies
+        .filter(
           (veterancy) => !veterancies.find((v) => v.name === veterancy.name),
         )
         .sort((a, b) => a.cost - b.cost) || [],
@@ -70,19 +68,15 @@ export default function Home() {
   );
   const pickableArtifacts = React.useMemo(
     () =>
-      data.factions
-        .find((f) => f.key === faction?.key)
-        ?.artifacts.filter(
-          (artifact) => !artifacts.find((v) => v.name === artifact.name),
-        )
+      faction?.artifacts
+        .filter((artifact) => !artifacts.find((v) => v.name === artifact.name))
         .sort((a, b) => a.cost - b.cost) || [],
     [faction, artifacts],
   );
   const pickableUnits = React.useMemo(
     () =>
-      data.factions
-        .find((f) => f.key === faction?.key)
-        ?.units.filter(
+      faction?.units
+        .filter(
           (unit) => !unit.unique || !units.find((v) => v.name === unit.name),
         )
         .filter(
@@ -214,7 +208,7 @@ export default function Home() {
   };
 
   const addUnit = (minUnit: Unit) => {
-    setPBs((prev) => prev + minUnit.minCost);
+    setPBs((prev) => prev + minUnit.minCost!);
     setUnits((prev) => [...prev, minUnit]);
   };
 
@@ -284,11 +278,12 @@ export default function Home() {
         </PickCta>
 
         <CardSelectionGrid>
-          {data.factions
+          {(data.factions as Faction[])
             .filter((faction) => faction.name !== "Genérico")
+            .sort((a, b) => a.key.localeCompare(b.key))
             .map((faction) => (
               <FactionCard
-                key={faction.key}
+                key={faction.key + faction.name}
                 faction={faction}
                 onPress={() => setTimeout(() => setFaction(faction), 150)}
               />
@@ -297,8 +292,6 @@ export default function Home() {
       </section>
     );
   }
-
-  const factionData = data.factions.find((f) => f.key === faction?.key);
 
   if (!leader) {
     return (
@@ -311,11 +304,11 @@ export default function Home() {
         </PickCta>
 
         <CardSelectionGrid>
-          {factionData?.leaders.map((leader) => (
+          {faction?.leaders.map((leader) => (
             <CharCard
               key={leader.key}
               char={leader}
-              faction={factionData}
+              faction={faction}
               isAffordable
               onPress={() => setTimeout(() => handlePickLeader(leader), 150)}
             />
@@ -333,21 +326,21 @@ export default function Home() {
         maxDomain={maxDomain}
         onReset={handleReset}
         onCopy={() => navigator.clipboard.writeText(getListInText())}
-        faction={factionData}
+        faction={faction}
       />
 
       <Card className="md:w-[75%] w-full bg-black border-1 border-slate-500">
         <CardBody className="gap-2">
           <SelectedCharCard
             char={leader}
-            faction={factionData!}
+            faction={faction}
             onPress={() => handlePickLeader(null)}
           />
           {artifacts.map((artifact, index) => (
             <SelectedArtifactCard
               key={`${artifact.name}-${index}`}
               artifact={artifact}
-              faction={factionData!}
+              faction={faction}
               onPress={() => removeArtifact(artifact, index)}
             />
           ))}
@@ -358,7 +351,7 @@ export default function Home() {
             <SelectedVeterancyCard
               key={vet.name}
               veterancy={vet}
-              faction={factionData!}
+              faction={faction}
               onPress={() => removeVeterancy(vet, index)}
             />
           ))}
@@ -366,7 +359,7 @@ export default function Home() {
             <SelectedUnitCard
               key={`${unit.name}-${index}`}
               unit={unit}
-              faction={factionData!}
+              faction={faction}
               onDeleteUnit={() => removeUnit(unit, index)}
               onAddMember={(unit, memberKey) =>
                 addMemberToUnit(index, unit, memberKey)
@@ -380,7 +373,7 @@ export default function Home() {
             <SelectedCharCard
               key={`${char.key}-${index}`}
               char={char}
-              faction={factionData!}
+              faction={faction}
               onPress={() => removeCombatant(char, index)}
             />
           ))}
@@ -397,7 +390,7 @@ export default function Home() {
           <VeterancyCard
             key={veterancy.name}
             veterancy={veterancy}
-            faction={factionData!}
+            faction={faction}
             isAffordable={veterancy.cost <= remainingPbs}
             onPress={() => {
               addVetrancy(veterancy);
@@ -408,8 +401,8 @@ export default function Home() {
           <UnitCard
             key={unit.name}
             unit={createMinimalUnit(unit)}
-            faction={factionData!}
-            isAffordable={unit.minCost <= remainingPbs}
+            faction={faction}
+            isAffordable={unit.minCost! <= remainingPbs}
             onPress={() => addUnit(unit)}
           />
         ))}
@@ -417,7 +410,7 @@ export default function Home() {
           <CharCard
             key={char.key}
             char={char}
-            faction={factionData!}
+            faction={faction}
             isAffordable={char.cost <= remainingPbs}
             onPress={() => addCombatant(char)}
           />
@@ -434,7 +427,7 @@ export default function Home() {
           <ArtifactCard
             key={artifact.name}
             artifact={artifact}
-            faction={factionData!}
+            faction={faction}
             isAffordable={artifact.cost <= remainingDomain}
             onPress={() => addArtifact(artifact)}
           />

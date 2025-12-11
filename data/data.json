@@ -416,7 +416,7 @@
       ]
     },
     {
-      "name": "Adeptos de Malesur",
+      "name": "Iniciados de Malesur",
       "key": "Malesur",
       "leaders": [
         {
@@ -549,15 +549,7 @@
           "cost": 1
         },
         {
-          "name": "Favor del crecimiento",
-          "cost": 1
-        },
-        {
           "name": "Favor del instinto",
-          "cost": 1
-        },
-        {
-          "name": "Favor del linaje",
           "cost": 1
         },
         {
@@ -768,6 +760,171 @@
         {
           "name": "Manto de Pyrokkan",
           "cost": 1
+        }
+      ],
+      "veterancies": [
+        {
+          "name": "Artífice veterano",
+          "cost": 1
+        },
+        {
+          "name": "Mando veterano",
+          "cost": 1
+        },
+        {
+          "name": "Arcanista veterano",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "name": "Devotos de Malesur",
+      "key": "Malesur",
+      "leaders": [
+        {
+          "key": "ML01",
+          "name": "Miuhalo, el Búho",
+          "title": "Líder, Búho",
+          "cost": 15,
+          "domain": 4
+        },
+        {
+          "key": "ML02",
+          "name": "Shaogi, el Jabalí",
+          "title": "Líder, Jabalí",
+          "cost": 15,
+          "domain": 2
+        },
+        {
+          "key": "ML03",
+          "name": "Liehhan, el Oso",
+          "title": "Líder, Oso",
+          "cost": 16,
+          "domain": 2
+        },
+        {
+          "key": "ML04",
+          "name": "Yenay, la Mantis",
+          "title": "Líder, Mantis",
+          "cost": 17,
+          "domain": 3
+        }
+      ],
+      "nonLeaders": [
+        {
+          "key": "ML01M",
+          "name": "Miuhalo, el Búho",
+          "title": "Único, Búho",
+          "cost": 13
+        },
+        {
+          "key": "MC02",
+          "name": "Eriza",
+          "title": "Erizo",
+          "cost": 4
+        },
+        {
+          "key": "MC12",
+          "name": "Valhery, Primera Druida",
+          "title": "Única, Lobo",
+          "cost": 6
+        },
+        {
+          "key": "MC03",
+          "name": "Serpiente",
+          "title": "Serpiente",
+          "cost": 5
+        },
+        {
+          "key": "MC05",
+          "name": "Águila",
+          "title": "Águila",
+          "cost": 6
+        },
+        {
+          "key": "MC04",
+          "name": "Manada de Mangostas",
+          "title": "Mangosta, Multitud",
+          "cost": 7
+        },
+        {
+          "key": "MC01",
+          "name": "Topo",
+          "title": "Topo",
+          "cost": 7
+        },
+        {
+          "key": "MC06",
+          "name": "Cabra",
+          "title": "Cabra",
+          "cost": 8
+        },
+        {
+          "key": "MC07",
+          "name": "Lince",
+          "title": "Lince",
+          "cost": 8
+        },
+        {
+          "key": "MC09",
+          "name": "Morena",
+          "title": "Morena",
+          "cost": 10
+        },
+        {
+          "key": "MC08",
+          "name": "Cangrejo",
+          "title": "Cangrejo",
+          "cost": 11
+        },
+        {
+          "key": "MC10",
+          "name": "Toro",
+          "title": "Toro",
+          "cost": 13
+        }
+      ],
+      "units": [
+        {
+          "name": "Druidas",
+          "members": [
+            {
+              "key": "MC11",
+              "name": "Druida Lobo",
+              "title": "Lobo",
+              "cost": 4,
+              "min": 2,
+              "max": 3
+            }
+          ],
+          "unique": true,
+          "dependsOnLeader": null
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "Favor de la dualidad",
+          "cost": 1
+        },
+        {
+          "name": "Favor del crecimiento",
+          "cost": 1
+        },
+        {
+          "name": "Favor del instinto",
+          "cost": 1
+        },
+        {
+          "name": "Favor del linaje",
+          "cost": 1
+        },
+        {
+          "name": "Favor del poderío",
+          "cost": 1
+        },
+        {
+          "name": "Favor del viento",
+          "cost": 2
         }
       ],
       "veterancies": [

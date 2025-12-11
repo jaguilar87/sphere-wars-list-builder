@@ -4,6 +4,7 @@ import { TrashIcon } from "@heroicons/react/24/solid";
 import { Button } from "@heroui/button";
 
 import { ArtifactBox } from "../basic/artifact-box";
+import { MutedText } from "../basic/muted-text";
 
 export function SelectedArtifactCard({
   artifact,
@@ -18,7 +19,7 @@ export function SelectedArtifactCard({
     <div className="flex items-center gap-4">
       <ArtifactBox artifact={artifact} faction={faction} />
       <div className="flex flex-grow justify-end gap-4 items-center">
-        <span className="text-lg text-slate-500">{artifact.cost}DOM</span>
+        <MutedText>{artifact.cost}DOM</MutedText>
         <Button
           variant="ghost"
           isIconOnly

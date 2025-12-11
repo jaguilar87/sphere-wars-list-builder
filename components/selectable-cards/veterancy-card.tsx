@@ -22,7 +22,7 @@ export function VeterancyCard({
       <div className="flex items-center gap-4">
         <VeterancyBox veterancy={veterancy} faction={faction} />
         <span
-          className={clsx("text-lg grow text-right", {
+          className={clsx("text-base md:text-lg grow text-right", {
             ["text-gray-600"]: !isAffordable,
             ["text-secondary-500"]: isAffordable,
           })}
