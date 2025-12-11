@@ -61,7 +61,7 @@ export function SelectedUnitCard({
                 <MinusIcon className="w-6 h-6" />
               </Button>
             )}
-            <MutedText>
+            <MutedText className="text-center">
               {member.selected} x {member.cost}PBs
             </MutedText>
             {member.max !== member.min ? (
